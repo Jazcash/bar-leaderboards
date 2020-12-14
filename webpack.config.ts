@@ -23,7 +23,7 @@ const clientConfig: (env: "dev" | "prod") => WebpackDevServer.Configuration & we
         output: {
             path: path.resolve(__dirname, "dist/client"),
             filename: "[name].js",
-            publicPath: "/"
+            publicPath: ""
         },
         resolve: {
             extensions: [".js", ".ts", ".tsx"],
