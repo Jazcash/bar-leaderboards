@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <title>BAR - Leaderboards</title>
+</head>
+
+<body>
+    <div class="banner">
+        <img src="images/logo.png">
+        <div class="banner__subtext">Leaderboards</div>
+    </div>
+    <div class="leaderboard-container">
+        <% 
+            for (const leaderboardId in leaderboards) {
+                const players = leaderboards[leaderboardId];
+        %>
+            <div class="leaderboard">
+                <h2><%= leaderboardId %></h2>
+                <div class="row row--header">
+                    <div class="row__rank">Rank</div>
+                    <div class="row__name">Name</div>
+                    <div class="row__trueskill">TS</div>
+                </div>
+                <% players.forEach(player => { %>
+                    <div class="row">
+                        <div class="row__rank"><%= player.rank %></div>
+                        <div class="row__name"><%= player.name %></div>
+                        <div class="row__trueskill"><%= player.trustedSkill.toFixed(2) %></div>
+                    </div>
+                <% }); %>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>

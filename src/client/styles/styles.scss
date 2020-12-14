@@ -1,0 +1,91 @@
+@font-face {
+    font-family: "Eurostile";
+    src: url("fonts/Eurostile.ttf");
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Eurostile', sans-serif;
+    font-weight: 400;
+    color: #eee;
+    background: linear-gradient(180deg,rgba(0,0,0,.84),rgba(0,0,0,.84)),url("images/background.jpg");
+}
+
+.banner{
+    img {
+        max-height: 70px;
+        margin-top: 20px;
+    }
+    &__subtext {
+        text-align: center;
+        letter-spacing: 3px;
+        font-weight: 400;
+        text-transform: uppercase;
+        margin-left: 2px;
+    }
+}
+
+.leaderboard-container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: row;
+    padding-top: 25px;
+    @media screen and (max-width: 900px) {
+        flex-wrap: wrap;
+    }
+}
+
+.leaderboard {
+    width: 100%;
+    padding: 0 2%;
+    padding-bottom: 5px;
+    h2 {
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 28px;
+        text-transform: uppercase;
+    }
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    &--header{
+        font-size: 12px;
+        font-weight: 400;
+        background: none;
+    }
+    &__rank{
+        width: 15%;
+    }
+    &__name{
+        width: 65%;
+        display: flex;
+    }
+    &__trueskill{
+        width: 20%;
+    }
+    &:nth-child(odd){
+        background: rgba(255, 255, 255, 0.08);
+    }
+    &:nth-child(3) .row__name {
+        &:after{
+            margin-left: 5px;
+            font-size: 14px;
+            content: "🏆";
+        }
+    }
+}

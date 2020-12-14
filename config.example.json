@@ -1,0 +1,8 @@
+{
+    "host": "road-flag.bnr.la",
+    "port": 8200,
+    "username": "MyBot",
+    "password": "greatpassword",
+    "sldbUsername": "SLDB",
+    "pollInterval": 60000
+}
