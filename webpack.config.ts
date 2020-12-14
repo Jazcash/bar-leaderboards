@@ -71,7 +71,7 @@ const clientConfig: (env: "dev" | "prod") => WebpackDevServer.Configuration & we
             new CopyPlugin({
                 patterns: [
                     { from: "src/client/images", to: "images" },
-                    { from: "src/client/fonts", to: "fonts" },
+                    //{ from: "src/client/fonts", to: "fonts" },
                 ]
             }),
             new webpack.DefinePlugin({
