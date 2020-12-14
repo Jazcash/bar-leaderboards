@@ -4,5 +4,7 @@
     "username": "MyBot",
     "password": "greatpassword",
     "sldbUsername": "SLDB",
+    "gameName": "BYAR",
+    "leaderboards": ["duel", "team", "ffa"],
     "pollInterval": 60000
 }
