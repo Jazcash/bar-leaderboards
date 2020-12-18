@@ -10,7 +10,9 @@ html, body {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     color: #fff;
-    //background: linear-gradient(180deg,rgba(0,0,0,.84),rgba(0,0,0,.84)),url("images/background.jpg");
+    &.dev {
+        background: linear-gradient(180deg,rgba(0,0,0,.84),rgba(0,0,0,.84)),url("images/background.jpg");
+    }
 }
 
 .banner{
@@ -29,7 +31,7 @@ html, body {
 
 .leaderboard-container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1440px;
     display: flex;
     flex-direction: row;
     padding: 25px;
