@@ -37,7 +37,7 @@ export class Server {
     }
 
     public async start() {
-        return new Promise(resolve => {
+        return new Promise<void>(resolve => {
             this.app.listen(this.config.port, () => {
                 console.log(`Server running at http://localhost:${this.config.port}`);
                 resolve();

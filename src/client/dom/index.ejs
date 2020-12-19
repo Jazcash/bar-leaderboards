@@ -17,11 +17,11 @@
     </div>
     <div class="leaderboard-container">
         <% 
-            for (const leaderboardId in leaderboards) {
-                const players = leaderboards[leaderboardId];
+            for (const leaderboard of leaderboards) {
+                const players = leaderboard.players;
         %>
             <div class="leaderboard">
-                <h2><%= leaderboardId %></h2>
+                <h2><%= leaderboard.gameType %></h2>
                 <div class="row row--header">
                     <div class="row__rank">Rank</div>
                     <div class="row__name">Name</div>

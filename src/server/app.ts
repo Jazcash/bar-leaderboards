@@ -1,30 +1,31 @@
-import { DataFetcher } from "data-fetcher";
 import { Server } from "server";
 import config from "../../config.json";
+import { SLDBClient, SLDBModel } from "sldbts";
 
 declare const __IS_DEV__: boolean;
 
-console.log("isDev", __IS_DEV__);
-
 (async () => {
-    const dataFetcher = new DataFetcher(config);
-    
-    await dataFetcher.listen();
+    const server = new Server({ port: config.serverPort, isDev: __IS_DEV__ });
 
-    console.log("ready!");
-
-    dataFetcher.onLeaderboardsUpdated.addOnce(async () => {
-        console.log("leaderboards updated!");
-
-        const server = new Server({ port: 3456, isDev: __IS_DEV__ });
-
-        server.app.get("/", async (req, res) => {
-            const leaderboards = dataFetcher.getLeaderboards();
-            res.render("index", { leaderboards });
-        });
-
-        await server.start();
-
-        console.log("server listening updated!");
+    const client = new SLDBClient({
+        host: config.sldbXmlrpcHost,
+        port: config.sldbXmlrpcPort,
+        username: config.sldbXmlrpcUsername,
+        password: config.sldbXmlrpcPassword,
     });
+
+    let leaderboards: SLDBModel.LeaderboardResult[] = [];
+
+    leaderboards = await client.getLeaderboards(config.gameName, config.leaderboards as SLDBModel.GameType[]);
+
+    setInterval(async () => {
+        leaderboards = await client.getLeaderboards(config.gameName, config.leaderboards as SLDBModel.GameType[]);
+        console.log("Updated leaderboards");
+    }, config.pollInterval);
+
+    server.app.get("/", async (req, res) => {
+        res.render("index", { leaderboards });
+    });
+
+    await server.start();
 })();
