@@ -16,17 +16,9 @@ html, body {
 }
 
 .banner{
-    img {
-        max-height: 70px;
-        margin-top: 35px;
-    }
-    &__subtext {
-        text-align: center;
-        letter-spacing: 3px;
-        font-weight: 400;
-        text-transform: uppercase;
-        margin-left: 2px;
-    }
+    margin: 10px 0;
+    font-size: 68px;
+    font-weight: 700;
 }
 
 .leaderboard-container {

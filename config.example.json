@@ -1,10 +1,10 @@
 {
-    "host": "road-flag.bnr.la",
-    "port": 8200,
-    "username": "MyBot",
-    "password": "greatpassword",
-    "sldbUsername": "SLDB",
+    "serverPort": 3456,
+    "sldbXmlrpcHost": "xmlrpc.springgame.com",
+    "sldbXmlrpcPort": 8300,
+    "sldbXmlrpcUsername": "myxmlrpcLogin",
+    "sldbXmlrpcPassword": "myxmlrpcPassword",
     "gameName": "BYAR",
-    "leaderboards": ["duel", "team", "ffa"],
+    "leaderboards": ["Duel", "Team", "FFA"],
     "pollInterval": 60000
 }
